@@ -2,7 +2,7 @@
 
 ## Appearance / 外観
 
-![Image2Base64.png](https://github.com/PhantomquartzPark/Image2Base64/image/Image2Base64.png)
+![Image2Base64](./image/Image2Base64.png)
 
 ## How To Use / 使い方
 至ってシンプル．
