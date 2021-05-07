@@ -69,6 +69,8 @@ namespace Image2Base64
         private void OutputText()
         {
             var sb = new StringBuilder();
+
+            sb.Append(preTextBox.Text);
             if (urlCheckBox.Checked)
             {
                 sb.Append("[");
@@ -77,10 +79,9 @@ namespace Image2Base64
                 sb.Append(fileExt.Substring(1));    // 先頭のピリオド(.)を取る
                 sb.Append(";base64,");
             }
-            sb.Append(preTextBox.Text);
             sb.Append(imageBytesText);
-            sb.Append(postTextBox.Text);
             if (urlCheckBox.Checked) { sb.Append(")"); }
+            sb.Append(postTextBox.Text);
 
             base64TextBox.Text = sb.ToString();
         }
