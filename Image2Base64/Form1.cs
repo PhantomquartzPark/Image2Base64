@@ -38,13 +38,35 @@ namespace Image2Base64
 
                 // ファイルの情報(名前と拡張子)を抜き出す
                 string file = files[0];
-                fileName = System.IO.Path.GetFileName(file);    // 例：sample.jpeg
-                fileExt = System.IO.Path.GetExtension(file);    // 例：.jpeg
+                fileName = System.IO.Path.GetFileName(file);                // 例：sample.jpeg
+                fileExt = System.IO.Path.GetExtension(file).Substring(1);   // 例：jpeg，先頭のピリオド(.)を取る
 
                 // イメージに落とし込み，メモリストリームからbase64に変換
                 image = new Bitmap(file);
                 var memoryStream = new System.IO.MemoryStream();
-                image.Save(memoryStream, System.Drawing.Imaging.ImageFormat.Jpeg);
+                System.Drawing.Imaging.ImageFormat format;
+                switch(fileExt)
+                {
+                    /*
+                    case "jpeg":
+                    case "JPEG":
+                    case "jpg":
+                    case "JPG":
+                        format = System.Drawing.Imaging.ImageFormat.Jpeg;
+                        break;
+                    */
+                    case "png":
+                    case "PNG":
+                        format = System.Drawing.Imaging.ImageFormat.Png;
+                        break;
+                    case "bmp":
+                        format = System.Drawing.Imaging.ImageFormat.Bmp;
+                        break;
+                    default:
+                        format = System.Drawing.Imaging.ImageFormat.Jpeg;
+                        return;
+                }
+                image.Save(memoryStream, format);
                 byte[] imageBytes = memoryStream.ToArray();
                 imageBytesText = Convert.ToBase64String(imageBytes);
 
@@ -76,7 +98,7 @@ namespace Image2Base64
                 sb.Append("[");
                 sb.Append(fileName);
                 sb.Append("](data:image/");
-                sb.Append(fileExt.Substring(1));    // 先頭のピリオド(.)を取る
+                sb.Append(fileExt);
                 sb.Append(";base64,");
             }
             sb.Append(imageBytesText);
