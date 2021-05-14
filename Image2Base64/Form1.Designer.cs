@@ -58,6 +58,7 @@
             this.base64TextBox.Multiline = true;
             this.base64TextBox.Name = "base64TextBox";
             this.base64TextBox.ReadOnly = true;
+            this.base64TextBox.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.base64TextBox.Size = new System.Drawing.Size(760, 100);
             this.base64TextBox.TabIndex = 1;
             // 
