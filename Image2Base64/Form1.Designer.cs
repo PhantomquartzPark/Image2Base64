@@ -37,6 +37,10 @@
             this.postTextBox = new System.Windows.Forms.TextBox();
             this.reloadButton = new System.Windows.Forms.Button();
             this.urlCheckBox = new System.Windows.Forms.CheckBox();
+            this.sampleText = new System.Windows.Forms.Label();
+            this.wordsNumericBox = new System.Windows.Forms.NumericUpDown();
+            this.optionGuideLabel = new System.Windows.Forms.Label();
+            ((System.ComponentModel.ISupportInitialize)(this.wordsNumericBox)).BeginInit();
             this.SuspendLayout();
             // 
             // dropPanel
@@ -124,11 +128,54 @@
             this.urlCheckBox.Text = "データURLで出力する";
             this.urlCheckBox.UseVisualStyleBackColor = true;
             // 
+            // sampleText
+            // 
+            this.sampleText.AutoSize = true;
+            this.sampleText.Location = new System.Drawing.Point(13, 285);
+            this.sampleText.Name = "sampleText";
+            this.sampleText.Size = new System.Drawing.Size(553, 12);
+            this.sampleText.TabIndex = 9;
+            this.sampleText.Text = "サンプルテキスト (全てを描画するわけではないため、Ctrl+A → Ctrl+C などではなく必ずコピーボタンでコピーを行うこと)";
+            // 
+            // wordsNumericBox
+            // 
+            this.wordsNumericBox.Location = new System.Drawing.Point(84, 404);
+            this.wordsNumericBox.Maximum = new decimal(new int[] {
+            1000,
+            0,
+            0,
+            0});
+            this.wordsNumericBox.Minimum = new decimal(new int[] {
+            50,
+            0,
+            0,
+            0});
+            this.wordsNumericBox.Name = "wordsNumericBox";
+            this.wordsNumericBox.Size = new System.Drawing.Size(120, 19);
+            this.wordsNumericBox.TabIndex = 10;
+            this.wordsNumericBox.Value = new decimal(new int[] {
+            50,
+            0,
+            0,
+            0});
+            // 
+            // optionGuideLabel
+            // 
+            this.optionGuideLabel.AutoSize = true;
+            this.optionGuideLabel.Location = new System.Drawing.Point(13, 406);
+            this.optionGuideLabel.Name = "optionGuideLabel";
+            this.optionGuideLabel.Size = new System.Drawing.Size(65, 12);
+            this.optionGuideLabel.TabIndex = 11;
+            this.optionGuideLabel.Text = "表示文字数";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(784, 461);
+            this.Controls.Add(this.optionGuideLabel);
+            this.Controls.Add(this.wordsNumericBox);
+            this.Controls.Add(this.sampleText);
             this.Controls.Add(this.urlCheckBox);
             this.Controls.Add(this.reloadButton);
             this.Controls.Add(this.postTextLabel);
@@ -140,6 +187,7 @@
             this.Controls.Add(this.dropPanel);
             this.Name = "Form1";
             this.Text = "Image 2 Base64";
+            ((System.ComponentModel.ISupportInitialize)(this.wordsNumericBox)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -156,6 +204,9 @@
         private System.Windows.Forms.TextBox postTextBox;
         private System.Windows.Forms.Button reloadButton;
         private System.Windows.Forms.CheckBox urlCheckBox;
+        private System.Windows.Forms.Label sampleText;
+        private System.Windows.Forms.NumericUpDown wordsNumericBox;
+        private System.Windows.Forms.Label optionGuideLabel;
     }
 }
 

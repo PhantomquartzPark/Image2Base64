@@ -15,6 +15,7 @@ namespace Image2Base64
         private string fileName = "";
         private string fileExt = "";
         private string imageBytesText = "";
+        private string customizedText = "";
 
         public Form1()
         {
@@ -71,7 +72,7 @@ namespace Image2Base64
                 imageBytesText = Convert.ToBase64String(imageBytes);
 
                 // テキストボックスに出力
-                OutputText();
+                Reload();
             }
             catch
             {
@@ -88,7 +89,7 @@ namespace Image2Base64
         /// <summary>
         /// テキストを指定された形式でテキストボックスに書き込む
         /// </summary>
-        private void OutputText()
+        private void Reload()
         {
             var sb = new StringBuilder();
 
@@ -105,7 +106,8 @@ namespace Image2Base64
             if (urlCheckBox.Checked) { sb.Append(")"); }
             sb.Append(postTextBox.Text);
 
-            base64TextBox.Text = sb.ToString();
+            customizedText = sb.ToString();
+            base64TextBox.Text = customizedText.Substring(0, decimal.ToInt32(wordsNumericBox.Value));
         }
 
         /// <summary>
@@ -132,7 +134,7 @@ namespace Image2Base64
         /// <param name="e"></param>
         private void CopyButton_Click(object sender, EventArgs e)
         {
-            Clipboard.SetText(base64TextBox.Text);
+            Clipboard.SetText(customizedText);
         }
 
         /// <summary>
@@ -142,7 +144,7 @@ namespace Image2Base64
         /// <param name="e"></param>
         private void ReloadButton_Click(object sender, EventArgs e)
         {
-            OutputText();
+            Reload();
         }
     }
 }
