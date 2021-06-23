@@ -65,7 +65,7 @@ namespace Image2Base64
                         break;
                     default:
                         format = System.Drawing.Imaging.ImageFormat.Jpeg;
-                        return;
+                        break;
                 }
                 image.Save(memoryStream, format);
                 byte[] imageBytes = memoryStream.ToArray();
